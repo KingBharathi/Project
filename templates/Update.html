@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>Bharathi</title>	
+<style>
+	body {
+		margin:0;
+		background: #eeeeee;
+	}
+	.Home01 {
+		background: #ffffff;
+		padding: 50px 100px;
+		color: #20ee20;
+		font-size: 18px;
+	}
+	table {
+		width: 100%;
+		background-color: #dddddd;
+	}
+	th {
+		background-color: #dddddd;
+		padding:10px;
+		text-align: left;
+	}
+	td {
+		background-color: #eeeeee;
+		padding:10px;
+	}
+</style>
+</head>
+<body>
+	<div>
+		{% include "Head.html" %}
+	</div>
+	<div class="Home01">
+		<font size="7">Student Mark List</font><br>About the Django project.
+		<table>
+			
+			<form method="POST">
+			
+			<tr><td>Register Number</td><td><input type="text" name="StudId" value='{{ student.StudId }}'></td></tr>
+            <tr><td>Register Number</td><td><input type="text" name="StudName" value='{{ student.StudName }}'></td></tr>
+            <tr><td>Register Number</td><td><input type="text" name="StudPhone" value='{{ student.StudPhone }}'></td></tr>
+            {% csrf_token %}
+            <tr><td></td><td><input type="submit"></td></tr>
+            </form>
+		</table>
+
+	</div>
+</body>
+</html>

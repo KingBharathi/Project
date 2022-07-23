@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>Bharathi</title>	
+<style>
+	body {
+		margin:0;
+		background: #eeeeee;
+	}
+	.Home01 {
+		background: #ffffff;
+		padding: 50px 100px;
+		color: #20ee20;
+		font-size: 18px;
+	}
+	table {
+		width: 100%;
+		background-color: #dddddd;
+	}
+	th {
+		background-color: #dddddd;
+		padding:10px;
+		text-align: left;
+	}
+	td {
+		background-color: #eeeeee;
+		padding:10px;
+	}
+</style>
+</head>
+<body>
+	<div>
+		{% include "Head.html" %}
+	</div>
+	<div class="Home01">
+		<font size="7">Student Mark List</font><br>About the Django project.
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Name of the Student</th>
+				<th>Mak01</th>
+				<th>Mak02</th>
+				<th>Mak03</th>
+				<th>Total</th>
+				<th>Average</th>
+				<th>Result</th>
+				<th><a href="/Create">+ AddNew</a></th>
+			</tr>
+			{% for st in marks %}
+			
+			<tr>
+				<td>{{ st.StudId }}</td>
+				<td>{{ st.StudName2 }}</td>
+				<td>{{ st.Mark01 }}</td>
+				<td>{{ st.Mark02 }}</td>
+				<td>{{ st.Mark03 }}</td>
+				<td>{{ st.Mark01 |add:st.Mark02 |add:st.Mark03 }}</td>
+				<td>{{ st.Mark01 }}</td>
+				<td>
+				
+					{% if st.id > 2 %}
+					<font color="green">PASS</font>
+					{% else %}
+					<font color="red">FAIL</font>
+					{% endif %}
+				</td>
+				<td><a href="/Mark_Delete/{{ st.StudId }}">Edit</a>
+				<a href="/Mark_Delete/{{ st.StudId }}">Delete</a></td>
+				
+			</tr>
+			{% endfor %}
+		</table>
+
+	</div>
+</body>
+</html>

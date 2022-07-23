@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>Bharathi</title>	
+<style>
+	body {
+		margin:0;
+		background: #eeeeee;
+	}
+	.Home01 {
+		background: #ffffff;
+		padding: 50px 100px;
+		color: #20ee20;
+		font-size: 18px;
+	}
+	table {
+		width: 100%;
+		background-color: #dddddd;
+	}
+	th {
+		background-color: #dddddd;
+		padding:10px;
+	}
+	td {
+		background-color: #eeeeee;
+		padding:10px;
+	}
+	.AddBtn {
+		background-color: #009900;
+		padding: 7px 20px;
+		color: yellow;
+		text-decoration: none;
+	}
+	.EditBtn {
+		background-color: #0000ff;
+		padding: 7px 20px;
+		color: white;
+		text-decoration: none;
+	}
+	.DeleteBtn {
+		background-color: #ff0000;
+		padding: 7px 20px;
+		color: white;
+		text-decoration: none;
+	}
+</style>
+</head>
+<body>
+	<div>
+		{% include "Head.html" %}
+	</div>
+	<div class="Home01">
+		Welcome to Django project.<br>
+
+		<h1>Student Information</h1>
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Register No</th>
+				<th>Student Name</th>
+				<th>Phone Number</th>
+				<th><a href="/Create" class="AddBtn">+ AddNew</a></th>
+			</tr>
+			{% for st in student %}
+			<tr>
+				<td>{{ st.id }}</td>
+				<td>{{ st.StudId }}</td>
+				<td>{{ st.StudName }}</td>
+				<td>{{ st.StudPhone }}</td>
+				<td><a href="/Student_Edit/{{ st.id }}" class="EditBtn">Edit</a>
+				<a href="/Student_Delete/{{ st.id }}" class="DeleteBtn">Delete</a></td>
+				
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+</body>
+</html>
