@@ -5,11 +5,11 @@ from Student.models import Student, StudentMarks
 
 # Create your views here.
 def index(request):
-    return render(request, "Head.html")
+    return render(request, "index.html")
 
 def home(request):
     data=Student.objects.all()
-    return render(request, "Home.html", {'student':data})
+    return render(request, "index.html", {'student':data})
 
 def Student_Delete(request, id):
     student = Student.objects.get(id=id)
